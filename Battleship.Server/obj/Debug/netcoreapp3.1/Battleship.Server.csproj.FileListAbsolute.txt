@@ -1,0 +1,9 @@
+C:\Users\valen\source\repos\Battleship\Battleship.Server\bin\Debug\netcoreapp3.1\appsettings.Development.json
+C:\Users\valen\source\repos\Battleship\Battleship.Server\bin\Debug\netcoreapp3.1\appsettings.json
+C:\Users\valen\source\repos\Battleship\Battleship.Server\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
+C:\Users\valen\source\repos\Battleship\Battleship.Server\obj\Debug\netcoreapp3.1\Battleship.Server.csprojAssemblyReference.cache
+C:\Users\valen\source\repos\Battleship\Battleship.Server\obj\Debug\netcoreapp3.1\Battleship.Server.AssemblyInfoInputs.cache
+C:\Users\valen\source\repos\Battleship\Battleship.Server\obj\Debug\netcoreapp3.1\Battleship.Server.AssemblyInfo.cs
+C:\Users\valen\source\repos\Battleship\Battleship.Server\obj\Debug\netcoreapp3.1\Battleship.Server.RazorTargetAssemblyInfo.cache
+C:\Users\valen\source\repos\Battleship\Battleship.Server\obj\Debug\netcoreapp3.1\staticwebassets\Battleship.Server.StaticWebAssets.Manifest.cache
+C:\Users\valen\source\repos\Battleship\Battleship.Server\obj\Debug\netcoreapp3.1\staticwebassets\Battleship.Server.StaticWebAssets.xml
