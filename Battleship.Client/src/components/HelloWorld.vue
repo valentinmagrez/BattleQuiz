@@ -29,15 +29,33 @@
       <li><a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener">vue-loader</a></li>
       <li><a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">awesome-vue</a></li>
     </ul>
+    <button v-on:click="sendMessage()">sendMessage</button>
+    <p>{{chatMessage}}</p>
+    <p>{{username}}</p>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
+import { ChatHub } from '../services/SignalR/chat-hub'
 
 @Component
 export default class HelloWorld extends Vue {
+  private chatMessage?: string = '';
+  private username?: string = ''; 
   @Prop() private msg!: string;
+  connection?: ChatHub;
+
+  created() {
+    this.connection = new ChatHub();
+  }
+
+  sendMessage(){
+    if(this.connection === undefined){
+      return;
+    }
+    this.connection.sendMessage("test", "message de test");
+  }
 }
 </script>
 
