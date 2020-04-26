@@ -1,6 +1,8 @@
 using Battleship.Server.Hubs;
+using Battleship.Server.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -19,6 +21,9 @@ namespace Battleship.Server
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<BattleshipDbContext>(
+                opt => opt.UseInMemoryDatabase("Battleship")
+                );
             services.AddControllers();
             services.AddSignalR();
             services.AddCors(options => options.AddPolicy("CorsPolicy",
