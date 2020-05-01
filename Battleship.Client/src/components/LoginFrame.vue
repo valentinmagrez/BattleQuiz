@@ -1,6 +1,16 @@
 <template>
     <div>
-        <input type="text"/>
+        <div class="field">
+            <div class="control has-icons-left">
+                <input class="input" placeholder="Pseudo">
+                <span class="icon is-small is-left">
+                    <font-awesome-icon icon="user" />
+                </span>
+            </div>
+        </div>
+        <button class="button is-info">
+            Jouer
+        </button>
     </div>
 </template>
 

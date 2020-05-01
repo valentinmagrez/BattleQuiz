@@ -9,6 +9,7 @@
 </template>
 
 <style lang="scss">
+@import "~bulma/css/bulma.css";
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
