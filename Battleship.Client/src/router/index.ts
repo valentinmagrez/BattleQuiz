@@ -1,14 +1,17 @@
 import Vue from 'vue'
 import VueRouter, { RouteConfig } from 'vue-router'
-import Home from '../views/Home.vue'
+import Game from '../views/Game.vue'
 
 Vue.use(VueRouter)
   const loginRoute = {'path': '/login', 'name': 'Login'}
+  const gamerRoute = {'path': '/', 'name': 'Game'}
+
   const routes: Array<RouteConfig> = [
   {
-    path: '/',
-    name: 'Home',
-    component: Home
+    path: gamerRoute.path,
+    name: gamerRoute.name,
+    component: Game,
+    props: (route) => ({ gameId: route.query.gid })
   },
   {
     path: loginRoute.path,
@@ -27,7 +30,7 @@ const router = new VueRouter({
 })
 
 router.beforeEach((to, from, next) => {
-  const isAuthenticated = localStorage.getItem('name') != null;
+  const isAuthenticated = localStorage.getItem('name') == null;
   if(to.name !== loginRoute.name && !isAuthenticated) next({name: loginRoute.name})
   else next()
 })
