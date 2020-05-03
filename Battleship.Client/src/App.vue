@@ -12,5 +12,11 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  background-color: #eeeeee;
+  height: 100%;
+}
+
+html, body{
+  height: 100%;
 }
 </style>

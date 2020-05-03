@@ -1,5 +1,5 @@
 <template>
-    <div class="columns is-mobile is-centered">
+    <div class="login-box columns is-mobile is-centered is-vcentered">
         <div class="column is-one-quarter">
             <login-frame class="box"></login-frame>
         </div>
@@ -18,5 +18,9 @@ export default class extends Vue{ }
 </script>
 
 <style lang="scss" scoped>
-    
+
+    .login-box{
+        height: 100%;
+    }
+
 </style>
