@@ -14,6 +14,23 @@ import { Vue, Component, Prop } from 'vue-property-decorator';
         components: {  },
 })
 export default class extends Vue{
-  @Prop(String) public gameId!: string;
+  @Prop(String) public gameId: string | undefined;
+
+  async mounted(): Promise<void> {
+    if (this.gameId === undefined){
+      this.createGame();
+    }
+    else{
+      this.loadGame();
+    }
+  }
+
+  createGame(): void{
+    console.log('Create game');
+  }
+
+  loadGame(): void{
+    console.log('call api to get party data, if none create')
+  }
 }
 </script>
