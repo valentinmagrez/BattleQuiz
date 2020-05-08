@@ -8,13 +8,14 @@
 <script lang="ts">
 
 import { Vue, Component, Prop } from 'vue-property-decorator';
-
+import { GameService } from '@/services/API/game-service'
 @Component({
         name: 'Game',
         components: {  },
 })
 export default class extends Vue{
   @Prop(String) public gameId: string | undefined;
+  private gameService: GameService = new GameService();
 
   async mounted(): Promise<void> {
     if (this.gameId === undefined){
@@ -26,7 +27,9 @@ export default class extends Vue{
   }
 
   createGame(): void{
-    console.log('Create game');
+    this.gameService.createGame().then((game) => {
+      this.gameId = game.token;
+    });
   }
 
   loadGame(): void{
