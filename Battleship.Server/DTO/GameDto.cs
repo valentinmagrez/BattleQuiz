@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using Battleship.Server.Models;
 using Newtonsoft.Json;
 
 namespace Battleship.Server.DTO
@@ -8,5 +7,8 @@ namespace Battleship.Server.DTO
     {
         [JsonProperty]
         public IList<PlayerDto> Players { get; set; }
+
+        [JsonProperty]
+        public string UrlId { get; set; }
     }
 }

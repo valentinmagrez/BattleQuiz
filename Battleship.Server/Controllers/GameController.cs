@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Battleship.Server.DTO;
 using Battleship.Server.Models;
@@ -25,6 +26,7 @@ namespace Battleship.Server.Controllers
             var game = await _context.Games.FirstOrDefaultAsync(_=>_.UrlId==id);
             var gameDto = new GameDto
             {
+                UrlId = game.UrlId,
                 Players = game.Players.Select(_ => new PlayerDto
                 {
                     Name = _.Name
@@ -41,7 +43,13 @@ namespace Battleship.Server.Controllers
             _context.Games.Add(game);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction(nameof(Get), new {id = game.UrlId}, game);
+            var result = new GameDto
+            {
+                UrlId = game.UrlId,
+                Players = new List<PlayerDto>()
+            };
+
+            return CreatedAtAction(nameof(Get), new {id = game.UrlId}, result);
         }
     }
 }
