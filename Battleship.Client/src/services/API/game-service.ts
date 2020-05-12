@@ -7,6 +7,14 @@ export class GameService extends ApiService{
 
     public async createGame(): Promise<Game>{
         const gameDto = await this.postResource(GameDto, this.resource);
+        
+        return Game.create(gameDto);
+    }
+
+    public async getGame(gameId: string): Promise<Game>{
+        const resource = this.resource + "/" + gameId;
+        const gameDto = await this.get(GameDto, resource);
+        
         return Game.create(gameDto);
     }
 }

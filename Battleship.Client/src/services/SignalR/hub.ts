@@ -6,16 +6,15 @@ import {
   } from '@microsoft/signalr';
 
 export abstract class Hub{
-    readonly signalRUrl: string = "https://localhost:32768/"
+    readonly signalRUrl: string = "https://localhost:32770/"
     protected hubConnection: HubConnection;
 
     constructor(hubName: string){
         this.hubConnection = this.createConnection(hubName);
         this.registerOnServerEvents();
-        this.startConnection();    
     }
 
-    createConnection(hubName: string) {    
+    protected createConnection(hubName: string) {    
         return new HubConnectionBuilder()
             .withUrl(this.signalRUrl + hubName)
             .withAutomaticReconnect()
@@ -23,18 +22,13 @@ export abstract class Hub{
             .build();
     }
 
-    abstract registerOnServerEvents(): void;
+    protected abstract registerOnServerEvents(): void;
 
-    private startConnection() {
+    public async connect() {
         if (this.hubConnection.state === HubConnectionState.Connected) {
           return;
         }
     
-        this.hubConnection.start().then(
-          () => {
-            console.log('Hub connection started!');
-          },
-          error => console.error(error)
-        );
-      }
+        await this.hubConnection.start();
+    }
 }
