@@ -54,6 +54,7 @@ namespace Battleship.Server
             {
                 endpoints.MapControllers();
                 endpoints.MapHub<ChatHub>("/chathub");
+                endpoints.MapHub<GameHub>("/gamehub");
             });
         }
     }

@@ -1,14 +1,15 @@
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.SignalR;
 
 namespace Battleship.Server.Hubs
 {
     public class GameHub : Hub<IGameClient>
     {
-        public void JoinGame(string gameToken)
+        public Task JoinGame(string gameToken)
         {
             Groups.AddToGroupAsync(Context.ConnectionId, gameToken);
             //todo use real username
-            Clients.OthersInGroup(gameToken).AddNewPlayer("test");
+            return Clients.OthersInGroup(gameToken).AddNewPlayer("test");
         }
     }
 }
